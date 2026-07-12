@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pkl
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Node / frontend
+node_modules/
+dist/
+build/
+.next/
+
+# Env / secrets
+.env
+.env.local
+*.key
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large generated data (regenerate via ml/generate_data.py instead of committing)
+ml/data/transactions.csv
+ml/data/behavioral_events.csv
+ml/data/customers.csv
+
+# Keep these tracked - they're the handoff files backend/frontend depend on
+!ml/data/scored_leads.json
+!shared/lead_schema.json
+
+# Editor
+.vscode/
+.idea/

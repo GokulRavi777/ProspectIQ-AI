@@ -1,0 +1,17 @@
+{
+  "$comment": "Dummy placeholder metrics for backend/dashboard dev to build the KPI strip against. Dev A replaces this with real backtested numbers once models are trained.",
+  "baseline_conversion_rate": 0.08,
+  "prospectiq_conversion_rate": 0.31,
+  "conversion_lift_multiple": 3.9,
+  "total_leads_scored": 1000,
+  "hot_leads_count": 180,
+  "warm_leads_count": 340,
+  "cold_leads_count": 480,
+  "thin_file_customers_scored": 312,
+  "thin_file_coverage_pct": 0.312,
+  "avg_repayment_capacity_score": 54.2,
+  "model_precision": 0.74,
+  "model_recall": 0.68,
+  "model_f1": 0.71,
+  "last_updated": "placeholder - replace with actual training run timestamp"
+}

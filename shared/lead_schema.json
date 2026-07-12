@@ -1,0 +1,90 @@
+{
+  "$comment": "ProspectIQ handoff contract between ml/ and backend/. Do not edit unilaterally - message the other dev first if a field needs to change.",
+  "$schema_version": "1.0",
+  "fields": {
+    "customer_id": {
+      "type": "string",
+      "example": "CUST00001",
+      "description": "Unique customer identifier"
+    },
+    "name": {
+      "type": "string",
+      "example": "Arjun Kumar",
+      "description": "Display name (synthetic in prototype)"
+    },
+    "persona_label": {
+      "type": "string",
+      "example": "Salaried - Stable (IT/PSU)",
+      "description": "Human-readable persona segment, for internal/demo context only - not shown to end RM necessarily"
+    },
+    "repayment_capacity_score": {
+      "type": "float",
+      "range": [0, 100],
+      "example": 78.4,
+      "description": "RCS - FOIR-based repayment capacity, higher is better"
+    },
+    "conversion_propensity_score": {
+      "type": "float",
+      "range": [0, 100],
+      "example": 62.1,
+      "description": "CPS - behavioral engagement/intent score, higher is better"
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["Hot", "Warm", "Cold"],
+      "example": "Hot",
+      "description": "Derived from combined RCS + CPS thresholds"
+    },
+    "thin_file": {
+      "type": "boolean",
+      "example": false,
+      "description": "True if customer has no/limited bureau credit score and was scored via alt-data (transaction-based) approach only"
+    },
+    "recommended_product": {
+      "type": "string",
+      "enum": ["Personal Loan", "Home Loan", "Mortgage Loan", "Auto Loan"],
+      "example": "Home Loan"
+    },
+    "eligible_loan_amount": {
+      "type": "integer",
+      "example": 850000,
+      "description": "Estimated eligible amount in INR, rounded to nearest 1000"
+    },
+    "top_factors": {
+      "type": "array",
+      "items": {
+        "factor": "string - short human readable factor, e.g. 'Low FOIR (18%)'",
+        "impact": "string - 'positive' or 'negative'"
+      },
+      "max_items": 4,
+      "description": "Top factors driving the score, for the explainability panel"
+    },
+    "explanation_text": {
+      "type": "string",
+      "example": "Strong repayment capacity with low existing obligations and rising loan intent. Recommend contacting within 48 hours.",
+      "description": "Plain-English RM-facing summary, one to two sentences"
+    }
+  },
+  "example_record": {
+    "customer_id": "CUST00001",
+    "name": "Arjun Kumar",
+    "persona_label": "Salaried - Stable (IT/PSU)",
+    "repayment_capacity_score": 78.4,
+    "conversion_propensity_score": 62.1,
+    "tier": "Hot",
+    "thin_file": false,
+    "recommended_product": "Home Loan",
+    "eligible_loan_amount": 850000,
+    "top_factors": [
+      { "factor": "Low FOIR (18%)", "impact": "positive" },
+      { "factor": "Consistent monthly income", "impact": "positive" },
+      { "factor": "Visited EMI calculator 3x this week", "impact": "positive" }
+    ],
+    "explanation_text": "Strong repayment capacity with low existing obligations and rising loan intent. Recommend contacting within 48 hours."
+  },
+  "endpoints_using_this_schema": {
+    "GET /leads": "returns array of records in this shape (ranked)",
+    "GET /leads/{id}": "returns a single record in this shape",
+    "POST /simulate": "accepts raw customer input, returns a record in this shape computed live"
+  }
+}

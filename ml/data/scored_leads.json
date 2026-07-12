@@ -1,0 +1,172 @@
+[
+  {
+    "customer_id": "CUST00001",
+    "name": "Arjun Kumar",
+    "persona_label": "Salaried - Stable (IT/PSU)",
+    "repayment_capacity_score": 78.4,
+    "conversion_propensity_score": 62.1,
+    "tier": "Hot",
+    "thin_file": false,
+    "recommended_product": "Home Loan",
+    "eligible_loan_amount": 850000,
+    "top_factors": [
+      { "factor": "Low FOIR (18%)", "impact": "positive" },
+      { "factor": "Consistent monthly income", "impact": "positive" },
+      { "factor": "Visited EMI calculator 3x this week", "impact": "positive" }
+    ],
+    "explanation_text": "Strong repayment capacity with low existing obligations and rising loan intent. Recommend contacting within 48 hours."
+  },
+  {
+    "customer_id": "CUST00002",
+    "name": "Priya Nair",
+    "persona_label": "Self-Employed - Thriving",
+    "repayment_capacity_score": 71.2,
+    "conversion_propensity_score": 55.8,
+    "tier": "Hot",
+    "thin_file": true,
+    "recommended_product": "Auto Loan",
+    "eligible_loan_amount": 420000,
+    "top_factors": [
+      { "factor": "Consistent UPI business inflow", "impact": "positive" },
+      { "factor": "No bureau file - scored via cash-flow analysis", "impact": "positive" },
+      { "factor": "Browsed Auto Loan page twice this week", "impact": "positive" }
+    ],
+    "explanation_text": "No credit bureau history, but strong and consistent business cash flow indicates solid repayment ability. High-value alt-data lead."
+  },
+  {
+    "customer_id": "CUST00003",
+    "name": "Rohit Sharma",
+    "persona_label": "Gig Worker (Delivery/Freelance)",
+    "repayment_capacity_score": 48.6,
+    "conversion_propensity_score": 71.3,
+    "tier": "Warm",
+    "thin_file": true,
+    "recommended_product": "Personal Loan",
+    "eligible_loan_amount": 120000,
+    "top_factors": [
+      { "factor": "Irregular multi-platform income", "impact": "negative" },
+      { "factor": "High app engagement this month", "impact": "positive" },
+      { "factor": "Low existing EMI burden", "impact": "positive" }
+    ],
+    "explanation_text": "High interest signal but income volatility limits eligible amount. Suitable for a smaller personal loan with close monitoring."
+  },
+  {
+    "customer_id": "CUST00004",
+    "name": "Ananya Iyer",
+    "persona_label": "Young Professional - New to Credit",
+    "repayment_capacity_score": 66.9,
+    "conversion_propensity_score": 68.4,
+    "tier": "Hot",
+    "thin_file": true,
+    "recommended_product": "Personal Loan",
+    "eligible_loan_amount": 250000,
+    "top_factors": [
+      { "factor": "High savings rate (32%)", "impact": "positive" },
+      { "factor": "No existing obligations", "impact": "positive" },
+      { "factor": "First-time loan calculator use this week", "impact": "positive" }
+    ],
+    "explanation_text": "Thin credit file but strong savings discipline and no existing debt. Good first-loan candidate to build credit relationship."
+  },
+  {
+    "customer_id": "CUST00005",
+    "name": "Vikram Reddy",
+    "persona_label": "Over-Leveraged Customer",
+    "repayment_capacity_score": 22.1,
+    "conversion_propensity_score": 18.6,
+    "tier": "Cold",
+    "thin_file": false,
+    "recommended_product": "Personal Loan",
+    "eligible_loan_amount": 0,
+    "top_factors": [
+      { "factor": "High FOIR (62%)", "impact": "negative" },
+      { "factor": "2 existing EMI bounces in 6 months", "impact": "negative" },
+      { "factor": "No recent engagement", "impact": "negative" }
+    ],
+    "explanation_text": "Decent income but already overcommitted on existing obligations. Not recommended for further lending at this time."
+  },
+  {
+    "customer_id": "CUST00006",
+    "name": "Kavya Menon",
+    "persona_label": "Salaried - Variable (Sales/Incentive-based)",
+    "repayment_capacity_score": 58.3,
+    "conversion_propensity_score": 74.9,
+    "tier": "Warm",
+    "thin_file": false,
+    "recommended_product": "Auto Loan",
+    "eligible_loan_amount": 380000,
+    "top_factors": [
+      { "factor": "Variable but recovering income trend", "impact": "positive" },
+      { "factor": "Abandoned an application last month", "impact": "positive" },
+      { "factor": "Compared Auto Loan offers 4 times", "impact": "positive" }
+    ],
+    "explanation_text": "Previously started but did not complete an application - high intent. Worth proactive re-engagement."
+  },
+  {
+    "customer_id": "CUST00007",
+    "name": "Suresh Pillai",
+    "persona_label": "Self-Employed - Struggling",
+    "repayment_capacity_score": 31.4,
+    "conversion_propensity_score": 24.2,
+    "tier": "Cold",
+    "thin_file": true,
+    "recommended_product": "Personal Loan",
+    "eligible_loan_amount": 30000,
+    "top_factors": [
+      { "factor": "High expense-to-income ratio", "impact": "negative" },
+      { "factor": "Irregular business income", "impact": "negative" },
+      { "factor": "Minimal recent activity", "impact": "negative" }
+    ],
+    "explanation_text": "Cash-flow analysis shows limited repayment headroom currently. Low priority for outreach."
+  },
+  {
+    "customer_id": "CUST00008",
+    "name": "Meera Krishnan",
+    "persona_label": "Salaried - Stable (IT/PSU)",
+    "repayment_capacity_score": 84.7,
+    "conversion_propensity_score": 41.2,
+    "tier": "Warm",
+    "thin_file": false,
+    "recommended_product": "Home Loan",
+    "eligible_loan_amount": 1100000,
+    "top_factors": [
+      { "factor": "Very low FOIR (14%)", "impact": "positive" },
+      { "factor": "High and stable savings rate", "impact": "positive" },
+      { "factor": "Low recent engagement", "impact": "negative" }
+    ],
+    "explanation_text": "Excellent repayment capacity but low current intent signal. High-value target for proactive outreach campaign."
+  },
+  {
+    "customer_id": "CUST00009",
+    "name": "Karthik Rao",
+    "persona_label": "Dormant/Uninterested",
+    "repayment_capacity_score": 65.0,
+    "conversion_propensity_score": 4.1,
+    "tier": "Cold",
+    "thin_file": false,
+    "recommended_product": "Personal Loan",
+    "eligible_loan_amount": 300000,
+    "top_factors": [
+      { "factor": "Healthy financial profile", "impact": "positive" },
+      { "factor": "No app activity in 6 months", "impact": "negative" },
+      { "factor": "No past offer response", "impact": "negative" }
+    ],
+    "explanation_text": "Financially capable but shows no current engagement. Not a priority lead despite good repayment profile."
+  },
+  {
+    "customer_id": "CUST00010",
+    "name": "Divya Gupta",
+    "persona_label": "Self-Employed - Thriving",
+    "repayment_capacity_score": 76.8,
+    "conversion_propensity_score": 81.5,
+    "tier": "Hot",
+    "thin_file": false,
+    "recommended_product": "Mortgage Loan",
+    "eligible_loan_amount": 2200000,
+    "top_factors": [
+      { "factor": "Strong consistent business income", "impact": "positive" },
+      { "factor": "Visited Mortgage Loan page 5 times this week", "impact": "positive" },
+      { "factor": "Responded positively to a past offer", "impact": "positive" }
+    ],
+    "explanation_text": "Top-tier lead: strong repayment capacity and clear, active intent for a mortgage product. Contact immediately."
+  }
+]
