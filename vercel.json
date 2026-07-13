@@ -18,6 +18,7 @@
     { "src": "/simulate(.*)", "dest": "/backend/main.py" },
     { "src": "/docs(.*)", "dest": "/backend/main.py" },
     { "src": "/openapi.json", "dest": "/backend/main.py" },
-    { "src": "/(.*)", "dest": "/frontend/web/dist/$1" }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
