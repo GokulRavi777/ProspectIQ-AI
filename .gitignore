@@ -26,6 +26,7 @@ Thumbs.db
 ml/data/transactions.csv
 ml/data/behavioral_events.csv
 ml/data/customers.csv
+ml/data/customer_features.csv
 
 # Keep these tracked - they're the handoff files backend/frontend depend on
 !ml/data/scored_leads.json
