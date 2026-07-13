@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import client from '../api/client';
+import scoredLeadsData from '../data/scored_leads.json';
+import metricsData from '../data/metrics.json';
 import { 
   Search, LogOut, ChevronDown, ChevronUp, Plus, X, 
   Users, Flame, FileText, TrendingUp, Bell, Filter, 
@@ -79,26 +81,15 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const [leadsRes, metricsRes] = await Promise.all([
-          client.GET("/leads"),
-          client.GET("/metrics")
-        ]);
-        
-        if (leadsRes.data) {
-          setLeads(leadsRes.data as Lead[]);
-        }
-        if (metricsRes.data) {
-          setMetrics(metricsRes.data as Metrics);
-        }
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setLoading(false);
-      }
+    // Hackathon Bypass: Load data directly from JSON to avoid Vercel backend issues
+    try {
+      setLeads(scoredLeadsData as Lead[]);
+      setMetrics(metricsData as Metrics);
+    } catch (e) {
+      console.error("Error loading JSON data:", e);
+    } finally {
+      setLoading(false);
     }
-    fetchData();
   }, []);
 
   const handleLogout = () => {
@@ -137,20 +128,28 @@ export default function Dashboard() {
     setSimLoading(true);
     setSimulatedLead(null);
     try {
-      const res = await client.POST("/simulate", {
-        body: {
-          monthly_income: Number(simForm.monthly_income),
-          income_type: simForm.income_type as "Salaried" | "Self-Employed" | "Business",
-          existing_emi: Number(simForm.existing_emi),
-          recent_calculator_visits: Number(simForm.recent_calculator_visits)
-        }
-      });
-      if (res.data) {
-        setSimulatedLead(res.data as Lead);
-      }
+      // Mock simulate for hackathon demo
+      setTimeout(() => {
+        setSimulatedLead({
+          customer_id: "SIM-" + Math.floor(Math.random() * 10000),
+          name: "Simulated Demo User",
+          persona_label: "Simulated Profile",
+          repayment_capacity_score: Math.random() * 40 + 60,
+          conversion_propensity_score: Math.random() * 40 + 60,
+          tier: "Warm",
+          thin_file: false,
+          recommended_product: "Personal Loan",
+          eligible_loan_amount: Number(simForm.monthly_income) * 10,
+          top_factors: [
+            { factor: "Income to EMI ratio", impact: "positive" },
+            { factor: "Recent engagement", impact: "positive" }
+          ],
+          explanation_text: "This is a mocked simulation bypassing the backend for the live demo."
+        } as Lead);
+        setSimLoading(false);
+      }, 800);
     } catch (err) {
       console.error(err);
-    } finally {
       setSimLoading(false);
     }
   };
