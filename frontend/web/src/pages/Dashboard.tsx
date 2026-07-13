@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import client from '../api/client';
 import scoredLeadsData from '../data/scored_leads.json';
 import metricsData from '../data/metrics.json';
 import { 
