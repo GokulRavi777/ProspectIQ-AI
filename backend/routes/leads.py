@@ -9,7 +9,9 @@ def get_leads(
     request: Request,
     tier: Optional[str] = Query(None, description="Filter by tier (e.g., Hot, Warm, Cold)"),
     product: Optional[str] = Query(None, description="Filter by recommended product"),
-    thin_file: Optional[bool] = Query(None, description="Filter by thin file status")
+    thin_file: Optional[bool] = Query(None, description="Filter by thin file status"),
+    skip: int = Query(0, ge=0, description="Pagination skip"),
+    limit: int = Query(100, ge=1, le=1000, description="Pagination limit")
 ):
     leads = request.app.state.leads
 
@@ -27,7 +29,7 @@ def get_leads(
     if thin_file is not None:
         leads = [lead for lead in leads if lead.thin_file == thin_file]
         
-    return leads
+    return leads[skip : skip + limit]
 
 @router.get("/{customer_id}", response_model=Lead)
 def get_lead(request: Request, customer_id: str):

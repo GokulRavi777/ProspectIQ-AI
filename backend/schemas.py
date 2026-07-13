@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Literal
 
 class TopFactor(BaseModel):
@@ -9,8 +9,8 @@ class Lead(BaseModel):
     customer_id: str
     name: str
     persona_label: str
-    repayment_capacity_score: float
-    conversion_propensity_score: float
+    repayment_capacity_score: float = Field(ge=0, le=100)
+    conversion_propensity_score: float = Field(ge=0, le=100)
     tier: Literal["Hot", "Warm", "Cold"]
     thin_file: bool
     recommended_product: Literal["Personal Loan", "Home Loan", "Mortgage Loan", "Auto Loan"]
