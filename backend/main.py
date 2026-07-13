@@ -17,16 +17,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load data into memory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.path.join(BASE_DIR, "ml", "data")
+# Load data into memory from backend/data (safest for Vercel packaging)
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
 if not os.path.exists(DATA_DIR):
-    alt_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ml", "data")
-    if os.path.exists(alt_dir):
-        DATA_DIR = alt_dir
-    else:
-        DATA_DIR = os.path.join(os.getcwd(), "ml", "data")
+    # Fallback to ml/data if running from root locally without the copy
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    DATA_DIR = os.path.join(BASE_DIR, "ml", "data")
 
 def load_leads():
     try:
