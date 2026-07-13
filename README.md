@@ -53,6 +53,12 @@ Never merge the two feature branches directly into each other.
 ```bash
 git clone https://github.com/GokulRavi777/ProspectIQ-AI.git
 cd ProspectIQ-AI
+
+# Set up the Python virtual environment
+python -m venv venv
+venv\Scripts\activate       # Windows
+# source venv/bin/activate  # Mac/Linux
+
 git checkout dev-ml       # or dev-backend
 ```
 
