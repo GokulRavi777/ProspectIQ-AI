@@ -1,0 +1,23 @@
+{
+  "builds": [
+    {
+      "src": "frontend/web/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "backend/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    { "src": "/leads(.*)", "dest": "/backend/main.py" },
+    { "src": "/metrics(.*)", "dest": "/backend/main.py" },
+    { "src": "/simulate(.*)", "dest": "/backend/main.py" },
+    { "src": "/docs(.*)", "dest": "/backend/main.py" },
+    { "src": "/openapi.json", "dest": "/backend/main.py" },
+    { "src": "/(.*)", "dest": "/frontend/web/dist/$1" }
+  ]
+}
